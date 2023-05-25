@@ -15,7 +15,6 @@
  
     function check_sql_syntax($conn, $query) {
         try {
-            
             $res = mysqli_query($conn,$query);
             $response['message'] = "query executed successfully";
         } 

@@ -31,7 +31,7 @@
         $sqlQuery = $v->query;
         $conn = get_db($_SESSION['host'],$_SESSION['username'], $_SESSION['password'],$_SESSION['dbname']);
 
-        $isValid = check_sql_syntax($conn, $sqlQuery);
+        $isValid = check_sql_syntax($conn, $sqlQuery); 
         
         $queryResult = array();
         $response = array();
@@ -56,8 +56,8 @@
                 $response['status'] = "success";
                 echo json_encode($response);
 
-            }else{
-                echo "there is some error in query";
+            }else {
+                echo json_encode(["msg" => "Opertions performed successfully","status" => 'other operations']);
             }
         }
     }

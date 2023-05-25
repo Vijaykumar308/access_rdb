@@ -12,19 +12,30 @@ queryButton.addEventListener("click", () => {
       if (this.readyState == 4 && this.status == 200) {
         let response = this.responseText;
         response = JSON.parse(response);
-        if(response.status === "success") {
-          errorDiv.innerHTML = '';
-          console.log(response);
-          createHeader(response);
-          createRows(response);
-        }
-        else{
-          removeAllChildNodes(outputHeader);
-          removeAllChildNodes(outputRows);
-          errorDiv.innerHTML = "Error: " +response.error;
-          errorDiv.style.fontSize = "20px";
-          errorDiv.style.textTransform = "none";
-          errorDiv.style.lineHeight = "2.1";
+        
+        switch(response.status){
+          case "success":
+            errorDiv.innerHTML = '';
+            console.log(response);
+            createHeader(response);
+            createRows(response);
+            break;
+
+          case "failed":
+            removeAllChildNodes(outputHeader);
+            removeAllChildNodes(outputRows);
+            errorDiv.innerHTML = "Error: " +response.error;
+            errorDiv.style.fontSize = "20px";
+            errorDiv.style.textTransform = "none";
+            errorDiv.style.lineHeight = "2.1";
+            break;
+
+          case "other operations":
+            alert("Opertion performed successfully");
+            break;
+
+          default:
+            console.log("default case");  
         }
       }
     };
