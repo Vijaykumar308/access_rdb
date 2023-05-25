@@ -15,6 +15,7 @@
         $username = $v->username;
         $password = $v->password;
         $dbname = $v->dbname;
+        $conn = get_db($server,$username,$password,$dbname);
 
         $_SESSION['host']     = $server;
         $_SESSION['username'] = $username;
@@ -22,7 +23,6 @@
         $_SESSION['dbname']   = $dbname;
 
 
-        $conn = get_db($server,$username,$password,$dbname);
 
         print_r($conn);
     }
