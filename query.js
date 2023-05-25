@@ -1,9 +1,9 @@
 const queryButton = document.querySelector("#querySubmitButton");
 const query = document.querySelector("#query");
-
+const table = document.querySelector(".myTable");
 const outputHeader = document.querySelector("#outputHeader");
 const outputRows = document.querySelector("#outputRows");
-
+const errorDiv = document.querySelector(".error");
 queryButton.addEventListener("click", () => {
     const sqlQuery = query.value.replace(/\s+/g, ' ').trim().toLowerCase();
 
@@ -13,16 +13,18 @@ queryButton.addEventListener("click", () => {
         let response = this.responseText;
         response = JSON.parse(response);
         if(response.status === "success") {
+          errorDiv.innerHTML = '';
           console.log(response);
           createHeader(response);
           createRows(response);
         }
         else{
-          console.log(response);
-          outputHeader.innerHTML = "Error: " +response.error;
-          outputHeader.style.fontSize = "20px";
-          outputHeader.style.textTransform = "none";
-          outputHeader.style.lineHeight = "2.1";
+          removeAllChildNodes(outputHeader);
+          removeAllChildNodes(outputRows);
+          errorDiv.innerHTML = "Error: " +response.error;
+          errorDiv.style.fontSize = "20px";
+          errorDiv.style.textTransform = "none";
+          errorDiv.style.lineHeight = "2.1";
         }
       }
     };

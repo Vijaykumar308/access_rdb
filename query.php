@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['host'])){
+        header("Location:index.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,6 +23,9 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <style>
+        html{
+            height: 100vh;
+        }
         body {
             height: 80vh !important;
         }
@@ -32,6 +42,7 @@
 </head>
 
 <body>
+
     <!-- Navbar Start -->
     <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -40,7 +51,9 @@
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">RDB</span>
         </a>
         <div class="flex md:order-2">
-            <button type="button" class="text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 connectionButton">Close Connection</button>
+            <a href="logout.php">
+                <button type="button" class="text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 connectionButton">Close Connection</button>
+            </a>
         </div>
         </div>
     </nav>  
@@ -65,7 +78,8 @@
     <!-- Table Result Section Starts -->
     
     <div class="relative overflow-x-auto mx-20 my-28 myContainer">
-        <table class="w-full text-lg text-left text-gray-500 dark:text-gray-400">
+        <table class="w-full text-lg text-left text-gray-500 dark:text-gray-400 myTable">
+            <div class="error"></div>
             <thead id="outputHeader" class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                
             </thead>
