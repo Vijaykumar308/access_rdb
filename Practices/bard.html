@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="userInput">
+</body>
+</html>
+
+
+<script>
+// Create an array of words.
+var words = ["apple", "banana", "cherry"];
+
+// Get the user input value.
+var userInput = document.getElementById("userInput");
+
+// Set up an event listener for key up.
+userInput.addEventListener("keyup", function() {
+
+  // Check if the user input value exists in the array.
+  var isWordInArray = words.indexOf(this.value) > -1;
+
+  // If the user input value exists in the array, change the color of the word to red.
+  if (isWordInArray) {
+    this.style.color = "red";
+  } else {
+    this.style.color = "blue";
+  }
+});
+</script>
+
+</script>

@@ -29,32 +29,36 @@
 
     if($status === "run query") {   
         $sqlQuery = $v->query;
-        // $isValidQuery = check_sql_syntax($sqlQuery);
-
-        // if(!$isValidQuery) {
-        //     echo "please check query syntax"; 
-        //     exit;
-        // }
-
         $conn = get_db($_SESSION['host'],$_SESSION['username'], $_SESSION['password'],$_SESSION['dbname']);
 
-        $res = mysqli_query($conn, $sqlQuery);
+        $isValid = check_sql_syntax($conn, $sqlQuery);
         
         $queryResult = array();
         $response = array();
-        if(is_object($res)) {
-            while($row = mysqli_fetch_assoc($res)){
-                $queryResult[] = $row;
-            }
-            $header = col_header($queryResult[0]);
 
-            array_push($response, $header);
-            array_push($response, $queryResult);
-
+        if($isValid['message'] !== 'query executed successfully'){
+            $response['status'] = "failed";
+            $response['error'] = $isValid['message'];
             echo json_encode($response);
+            exit;
+        }
+        else{
+            $res = mysqli_query($conn, $sqlQuery);
+        
+            if(is_object($res)) {
+                while($row = mysqli_fetch_assoc($res)){
+                    $queryResult[] = $row;
+                }
+                $header = col_header($queryResult[0]);
 
-        }else{
-            echo "there is some error in query";
+                array_push($response, $header);
+                array_push($response, $queryResult);
+                $response['status'] = "success";
+                echo json_encode($response);
+
+            }else{
+                echo "there is some error in query";
+            }
         }
     }
 

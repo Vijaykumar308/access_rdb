@@ -11,11 +11,19 @@ queryButton.addEventListener("click", () => {
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         let response = this.responseText;
-        
         response = JSON.parse(response);
-        console.log(response);
-        createHeader(response);
-        createRows(response);
+        if(response.status === "success") {
+          console.log(response);
+          createHeader(response);
+          createRows(response);
+        }
+        else{
+          console.log(response);
+          outputHeader.innerHTML = "Error: " +response.error;
+          outputHeader.style.fontSize = "20px";
+          outputHeader.style.textTransform = "none";
+          outputHeader.style.lineHeight = "2.1";
+        }
       }
     };
 

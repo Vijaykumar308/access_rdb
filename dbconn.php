@@ -13,30 +13,16 @@
     }
 
  
-    function check_sql_syntax($query,) {
-        // Create a new mysqli object
-        $mysqli = new mysqli("localhost", "username", "password", "database");
-    
-        // Check if the connection was successful
-        if ($mysqli->connect_error) {
-        echo "Error connecting to MySQL: " . $mysqli->connect_error;
-        exit();
+    function check_sql_syntax($conn, $query) {
+        try {
+            
+            $res = mysqli_query($conn,$query);
+            $response['message'] = "query executed successfully";
+        } 
+        catch (mysqli_sql_exception $e) {
+            $response['message'] = $e->getMessage();
         }
-    
-        // Prepare the query
-        $stmt = $mysqli->prepare($query);
-    
-        // Execute the query
-        if ($stmt->execute()) {
-        // The query was successful
-        return true;
-        } else {
-        // The query failed
-        return false;
-        }
-    
-        // Close the connection
-        $mysqli->close();
+        return $response;
     }
     
 ?>
