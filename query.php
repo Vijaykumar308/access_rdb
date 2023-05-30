@@ -91,6 +91,6 @@
 
     <!-- Table Result Section Ends -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="query.js?v=1"></script>
+    <script src="query.js?v=3"></script>
 </body>
 </html>

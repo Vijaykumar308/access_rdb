@@ -1,15 +1,16 @@
 <?php
     include "../dbconn.php";
     $conn = get_db("localhost","root","", "crudapp");
-    $res = mysqli_query($conn,"select id, name from customers");
+    $res = mysqli_query($conn,"select id, name,age from customers");
 
     while($row = mysqli_fetch_assoc($res)){
         echo $row['id']." ";
-        echo $row['name']."<br>";
+        echo $row['name']." ";
+        echo $row['age']."<br>";
     }
 
-    $res = mysqli_query($conn,"delete FROM customers WHERE id in ('102','103')");
-    var_dump($res);
+    $res = mysqli_query($conn, "update customers SET age = '23' WHERE id in ('11','2','3')");
+    echo mysqli_affected_rows($conn);
 
 
 

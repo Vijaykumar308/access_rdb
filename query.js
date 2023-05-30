@@ -4,6 +4,7 @@ const table = document.querySelector(".myTable");
 const outputHeader = document.querySelector("#outputHeader");
 const outputRows = document.querySelector("#outputRows");
 const errorDiv = document.querySelector(".error");
+
 queryButton.addEventListener("click", () => {
     const sqlQuery = query.value.replace(/\s+/g, ' ').trim().toLowerCase();
 
@@ -11,8 +12,8 @@ queryButton.addEventListener("click", () => {
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         let response = this.responseText;
-        response = JSON.parse(response);
-        
+        // response = JSON.parse(response);
+        console.log(response); return;
         switch(response.status){
           case "success":
             errorDiv.innerHTML = '';
@@ -31,10 +32,15 @@ queryButton.addEventListener("click", () => {
             break;
 
           case "other operations":
+            console.log(response.msg);
             alert("Opertion performed successfully");
+            removeAllChildNodes(outputHeader);
+            removeAllChildNodes(outputRows);
+            errorDiv.innerHTML = response.msg;
             break;
 
           default:
+            console.log(response);
             console.log("default case");  
         }
       }

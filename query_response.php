@@ -21,9 +21,6 @@
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
         $_SESSION['dbname']   = $dbname;
-
-
-
         print_r($conn);
     }
 
@@ -44,7 +41,7 @@
         }
         else{
             $res = mysqli_query($conn, $sqlQuery);
-        
+            $affected_rows = mysqli_affected_rows($conn); // affected rows not working;
             if(is_object($res)) {
                 while($row = mysqli_fetch_assoc($res)){
                     $queryResult[] = $row;
@@ -56,8 +53,8 @@
                 $response['status'] = "success";
                 echo json_encode($response);
 
-            }else {
-                echo json_encode(["msg" => "Opertions performed successfully","status" => 'other operations']);
+            }else { 
+                echo json_encode(["msg" => "update rows ".$affected_rows, "status" => 'other operations']);
             }
         }
     }
