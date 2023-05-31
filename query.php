@@ -21,7 +21,8 @@
 
     <!-- CDN LINKS FOR BOOTSTRAP -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-
+    <!-- CDN LINKS FOR SWEET ALERTS -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
         html{
             height: 100vh;
@@ -37,6 +38,17 @@
         #outputHeader{
             position: sticky;
             top: 0;
+        }
+        .error:empty{
+            display:none;
+        }
+        .error {
+            width: 100%;
+            background: #ff8213;
+            padding: 18px;
+            color: #fff;
+            font-size: 23px;
+            font-weight: 400;
         }
     </style>
 </head>

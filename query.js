@@ -33,6 +33,7 @@ queryButton.addEventListener("click", () => {
 
           case "other operations":
             console.log(response.msg);
+      
             alert("Opertion performed successfully");
             removeAllChildNodes(outputHeader);
             removeAllChildNodes(outputRows);

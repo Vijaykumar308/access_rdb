@@ -47,8 +47,6 @@
             exit;
         }
         else {
-            //$res = mysqli_query($conn, $sqlQuery);
-            // echo json_encode($isValid); die;
             $res = $isValid['result']; 
             $affected_rows = mysqli_affected_rows($conn);
             // echo json_encode(['error' => mysqli_error($conn), 'status' => 'failed']);
@@ -64,7 +62,7 @@
                 echo json_encode($response);
 
             }else { 
-                echo json_encode(["msg" => "affected rows ".$affected_rows, "status" => 'other operations']);
+                echo json_encode(["msg" => $affected_rows." rows affected", "status" => 'other operations']);
             }
         }
     }
