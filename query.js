@@ -4,6 +4,7 @@ const table = document.querySelector(".myTable");
 const outputHeader = document.querySelector("#outputHeader");
 const outputRows = document.querySelector("#outputRows");
 const errorDiv = document.querySelector(".error");
+const initialPhaseDiv = document.querySelector(".initial_phase");
 
 queryButton.addEventListener("click", () => {
     const sqlQuery = query.value.replace(/\s+/g, ' ').trim().toLowerCase();
@@ -17,6 +18,7 @@ queryButton.addEventListener("click", () => {
         switch(response.status){
           case "success":
             errorDiv.innerHTML = '';
+            removeAllChildNodes(initialPhaseDiv);
             console.log(response);
             createHeader(response);
             createRows(response);
@@ -25,6 +27,7 @@ queryButton.addEventListener("click", () => {
           case "failed":
             removeAllChildNodes(outputHeader);
             removeAllChildNodes(outputRows);
+            removeAllChildNodes(initialPhaseDiv);
             errorDiv.innerHTML = "Error: " +response.error;
             errorDiv.style.fontSize = "20px";
             errorDiv.style.textTransform = "none";

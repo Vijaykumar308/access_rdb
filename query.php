@@ -29,6 +29,7 @@
         }
         body {
             height: 80vh !important;
+            background:#8fa1db;
         }
         .myContainer{
             max-width: 93%;
@@ -49,6 +50,18 @@
             color: #fff;
             font-size: 23px;
             font-weight: 400;
+            line-height: 2em;
+        }
+        .initial_phase{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-size: 34px;
+            color: #fdfdfd;
+        }
+        .initial_phase p{
+            text-shadow: 1px 1px 0px black;
         }
     </style>
 </head>
@@ -86,7 +99,10 @@
         </div>
     </div>
     <!-- Query Section Ends -->
-
+    
+    <div class="initial_phase">
+        <p>Write SQL Queries and find your result...</p>
+    </div>
     <!-- Table Result Section Starts -->
     
     <div class="relative overflow-x-auto mx-20 my-28 myContainer">
