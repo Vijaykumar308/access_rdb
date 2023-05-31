@@ -12,8 +12,8 @@ queryButton.addEventListener("click", () => {
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         let response = this.responseText;
-        // response = JSON.parse(response);
-        console.log(response); return;
+        response = JSON.parse(response);
+
         switch(response.status){
           case "success":
             errorDiv.innerHTML = '';
