@@ -26,11 +26,13 @@
 
     if($status === "run query") {   
         $sqlQuery = $v->query;
+
         // empty query not allowed to search;
         if(empty($sqlQuery)) {
             echo json_encode(['error' => 'Input some query', 'status' => 'failed']);
             exit;
         }
+
         $conn = get_db($_SESSION['host'],$_SESSION['username'], $_SESSION['password'],$_SESSION['dbname']);
 
         $isValid = check_sql_syntax($conn, $sqlQuery); 
@@ -44,12 +46,14 @@
             echo json_encode($response);
             exit;
         }
-        else{
-            $res = mysqli_query($conn, $sqlQuery);
-            $affected_rows = mysqli_affected_rows($conn); // affected rows not working;
-
+        else {
+            //$res = mysqli_query($conn, $sqlQuery);
+            // echo json_encode($isValid); die;
+            $res = $isValid['result']; 
+            $affected_rows = mysqli_affected_rows($conn);
+            // echo json_encode(['error' => mysqli_error($conn), 'status' => 'failed']);
             if(is_object($res)) {
-                while($row = mysqli_fetch_assoc($res)){
+                while($row = mysqli_fetch_assoc($res)) {
                     $queryResult[] = $row;
                 }
                 $header = col_header($queryResult[0]);
@@ -60,7 +64,7 @@
                 echo json_encode($response);
 
             }else { 
-                echo json_encode(["msg" => "update rows ".$affected_rows, "status" => 'other operations']);
+                echo json_encode(["msg" => "affected rows ".$affected_rows, "status" => 'other operations']);
             }
         }
     }

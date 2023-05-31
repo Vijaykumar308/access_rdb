@@ -9,7 +9,7 @@
         echo $row['age']."<br>";
     }
 
-    $res = mysqli_query($conn, "update customers SET age = '23' WHERE id in ('11','2','3')");
+    $res = mysqli_query($conn, "update customers set age = '25' where id = '2'");
     echo mysqli_affected_rows($conn);
 
 

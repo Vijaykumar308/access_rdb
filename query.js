@@ -13,7 +13,7 @@ queryButton.addEventListener("click", () => {
       if (this.readyState == 4 && this.status == 200) {
         let response = this.responseText;
         response = JSON.parse(response);
-
+        console.log(response);
         switch(response.status){
           case "success":
             errorDiv.innerHTML = '';

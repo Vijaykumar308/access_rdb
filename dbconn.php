@@ -17,6 +17,7 @@
         try {
             $res = mysqli_query($conn,$query);
             $response['message'] = "query executed successfully";
+            $response['result'] = $res;
         } 
         catch (mysqli_sql_exception $e) {
             $response['message'] = $e->getMessage();
