@@ -105,7 +105,7 @@
     </div>
     <!-- Table Result Section Starts -->
     
-    <div class="relative overflow-x-auto mx-20 my-28 myContainer">
+    <div class="relative overflow-x-auto mx-20 my-28 myContainer" style="height: 74vh;">
         <table class="w-full text-lg text-left text-gray-500 dark:text-gray-400 myTable">
             <div class="error"></div>
             <thead id="outputHeader" class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
