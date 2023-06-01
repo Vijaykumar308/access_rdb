@@ -29,7 +29,7 @@
         }
         body {
             height: 80vh !important;
-            background:#8fa1db;
+            background: #1b749e;
         }
         .myContainer{
             max-width: 93%;
@@ -39,14 +39,17 @@
         #outputHeader{
             position: sticky;
             top: 0;
+            background: #5b5c60;
+            color: #fff;
         }
         .error:empty{
             display:none;
         }
         .error {
-            width: 100%;
-            background: #ff8213;
+            width: 50%;   
+            /* background: #13d4e3; */
             padding: 18px;
+            border-radius: 10px;
             color: #fff;
             font-size: 23px;
             font-weight: 400;
@@ -61,7 +64,7 @@
             color: #fdfdfd;
         }
         .initial_phase p{
-            text-shadow: 1px 1px 0px black;
+            /* text-shadow: 1px 1px 0px black; */
         }
     </style>
 </head>
@@ -108,7 +111,7 @@
     <div class="relative overflow-x-auto mx-20 my-28 myContainer" style="height: 74vh;">
         <table class="w-full text-lg text-left text-gray-500 dark:text-gray-400 myTable">
             <div class="error"></div>
-            <thead id="outputHeader" class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <thead id="outputHeader" class="text-xs text-gray-700 uppercase bg-gray-900 dark:bg-gray-900 dark:text-gray-400">
                
             </thead>
             <tbody id="outputRows">
