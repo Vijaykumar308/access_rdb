@@ -7,8 +7,7 @@ const errorDiv = document.querySelector(".error");
 const initialPhaseDiv = document.querySelector(".initial_phase");
 
 queryButton.addEventListener("click", () => {
-    const sqlQuery = query.value.replace(/\s+/g, ' ').trim().toLowerCase();
-
+    const sqlQuery = query.innerText.replace(/\s+/g, ' ').trim().toLowerCase();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
