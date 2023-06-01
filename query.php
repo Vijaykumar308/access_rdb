@@ -96,7 +96,7 @@
         <div class="flex items-center px-3 py-4 rounded-lg bg-red-300 dark:bg-gray-700">
             <p style="font-size: 21px; font-weight: 500;">Type Query</p>
             <div id="query" class="editor w-1/2 h-28 bg-white p-3 block  p-2.5 w-full text-xl" contentEditAble="true">
-                dsf
+                
             </div>
             <!-- <textarea id="query" rows="1" class="block mx-8 p-2.5 w-full text-xl  bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="execute query..."
             >Select * from customers</textarea> -->

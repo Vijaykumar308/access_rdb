@@ -31,6 +31,7 @@ var keywords = [
   "SCHEMA", "SECURITYAUDIT", "SELECT", "SEMANTICKEYPHRASETABLE", "SEMANTICSIMILARITYDETAILSTABLE", 
   "SEMANTICSIMILARITYTABLE", "SESSION_USER", "SET", "SETUSER", "SHUTDOWN", "SOME", 
   "STATISTICS", "STORED", "STRING", "SUBSTRING", "SUM", "SUSPEND",
+  "UPDATE",
   "WHERE","WITH","WHEN"];
 
 // Keyup event
@@ -89,16 +90,18 @@ queryButton.addEventListener("click", () => {
             break;
 
           case "other operations":
-            console.log(response.msg);
+            // console.log(response.msg);
       
-            alert("Opertion performed successfully");
+            // alert("Opertion performed successfully");
             removeAllChildNodes(outputHeader);
             removeAllChildNodes(outputRows);
             errorDiv.innerHTML = response.msg;
             break;
 
           default:
-            console.log(response);
+            removeAllChildNodes(outputHeader);
+            removeAllChildNodes(outputRows);
+            errorDiv.innerHTML = response.msg;
             console.log("default case");  
       }
       }

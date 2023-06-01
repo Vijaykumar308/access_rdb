@@ -54,6 +54,12 @@
                 while($row = mysqli_fetch_assoc($res)) {
                     $queryResult[] = $row;
                 }
+
+                if(empty($queryResult)){
+                    echo json_encode(['msg' => 'no record found...', 'status' => 'no record found']);
+                    exit; 
+                }
+
                 $header = col_header($queryResult[0]);
 
                 array_push($response, $header);
