@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400&family=Roboto:wght@300;400;500&display=swap"  rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <!-- CDN LINKS FOR BOOTSTRAP -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <!-- CDN LINKS FOR SWEET ALERTS -->
@@ -65,6 +65,10 @@
         .initial_phase p{
             /* text-shadow: 1px 1px 0px black; */
         }
+        .statement {
+            color: #c644d0;
+            font-weight: 500;
+        }
     </style>
 </head>
 
@@ -90,8 +94,8 @@
     <div class="mx-20 sticky top-20">
         <label for="chat" class="sr-only">Your message</label>
         <div class="flex items-center px-3 py-4 rounded-lg bg-red-300 dark:bg-gray-700">
-            <p>Type Query</p>
-            <div id="query" class="editor w-9/12 bg-white p-3 block  p-2.5 w-full text-xl" contentEditAble="true">
+            <p style="font-size: 21px; font-weight: 500;">Type Query</p>
+            <div id="query" class="editor w-1/2 h-28 bg-white p-3 block  p-2.5 w-full text-xl" contentEditAble="true">
                 dsf
             </div>
             <!-- <textarea id="query" rows="1" class="block mx-8 p-2.5 w-full text-xl  bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="execute query..."
